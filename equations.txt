@@ -1,0 +1,23 @@
+y = gamma
+
+e = epsiolon
+
+V(s) = max_a(R(s,a) + y*V(s'))  for deterministic environments
+
+V(s) = max_a(R(s,a) + y*(s')Σ(P(s,a,s')*V(s'))) for probabilistic/stochastic environments 
+
+Q(s,a) represents the value of taking an action a in state s, under a certain polify. 
+This avlue is known as the action-value function.
+
+max_a(Q(s', a) represents the maximum value that can be obtrinaed by any action in the 
+next state s'. This is the value of the best possible action in the subsequent state.
+
+Q(s,a) = R(s,a) + y*(s')Σ(P(s,a,s')*V(s')
+
+Q(s,a) = R(s,a) + y*max_a(Q(s',a'))
+
+V(s) = max_a(Q(s,a))
+
+Q(s,a) <- (1 - alpha) * Q(s,a) + alpha * (r + gamma * max_a'*Q(s',a'))
+
+TD(error) = (R_t+1 + y* V(S_t+1)) - V(S_t) 
